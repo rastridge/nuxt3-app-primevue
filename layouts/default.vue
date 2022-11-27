@@ -25,7 +25,12 @@ const menuitems = ref([
 				to: '/autocomplete',
 			},
 			{
-				label: 'Examples',
+				label: 'Datepicker',
+				icon: 'pi pi-fw pi-bookmark',
+				to: '/datepicker',
+			},
+			{
+				label: 'Other Examples',
 				icon: 'pi pi-fw pi-bookmark',
 				to: '/examples',
 			},

@@ -148,6 +148,7 @@
 			</template>
 		</Dialog>
 
+		<!-- delete  -->
 		<Dialog
 			v-model:visible="deleteProductDialog"
 			:style="{ width: '450px' }"
@@ -177,6 +178,7 @@
 			</template>
 		</Dialog>
 
+		<!-- delete selected -->
 		<Dialog
 			v-model:visible="deleteProductsDialog"
 			:style="{ width: '450px' }"
@@ -186,7 +188,7 @@
 			<div class="confirmation-content">
 				<i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
 				<span v-if="members"
-					>Are you sure you want to delete the selected memberss?</span
+					>Are you sure you want to delete the selected members?</span
 				>
 			</div>
 			<template #footer>
@@ -209,7 +211,7 @@
 
 <script setup>
 import { FilterMatchMode } from 'primevue/api'
-// const toast = useToast()
+
 const runtimeConfig = useRuntimeConfig()
 const loading1 = ref(false)
 
@@ -254,26 +256,13 @@ const saveProduct = () => {
 		member.value.member_firstname.trim()
 	) {
 		if (member.value.account_id) {
-			// editing
+			// has been edited - account_id exists
 			members.value[findIndexById(member.value.account_id)] = member.value
-			// toast.add({
-			// 	severity: 'success',
-			// 	summary: 'Successful',
-			// 	detail: 'Member Updated',
-			// 	life: 3000,
-			// })
 		} else {
 			// new
 			member.value.account_id = createId()
 			members.value.push(member.value)
-
-			// toast.add({
-			// 	severity: 'success',
-			// 	summary: 'Successful',
-			// 	detail: 'Member Created',
-			// 	life: 3000,
-			// })
-		}
+		} // cancelled
 		productDialog.value = false
 		member.value = {}
 	}
@@ -289,21 +278,10 @@ const confirmDeleteProduct = (prod) => {
 }
 const deleteProduct = () => {
 	members.value = members.value.filter(function (val) {
-		console.log(
-			val.account_id,
-			member.value.account_id,
-			val.account_id !== member.value.account_id
-		)
 		return val.account_id !== member.value.account_id
 	})
 	deleteProductDialog.value = false
 	member.value = {}
-	toast.add({
-		severity: 'success',
-		summary: 'Successful',
-		detail: 'Product Deleted',
-		life: 3000,
-	})
 }
 const findIndexById = (id) => {
 	let index = -1
@@ -336,13 +314,6 @@ const deleteSelectedProducts = () => {
 	)
 	deleteProductsDialog.value = false
 	selectedProducts.value = null
-
-	toast.add({
-		severity: 'success',
-		summary: 'Successful',
-		detail: 'members Deleted',
-		life: 3000,
-	})
 }
 </script>
 
