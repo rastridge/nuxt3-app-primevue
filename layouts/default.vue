@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<Menubar :model="menuitems" />
-		<div class="content">
+		<div class="conten">
 			<slot />
 		</div>
 		<div class="footer">footer hello there</div>
@@ -43,6 +43,11 @@ const menuitems = ref([
 				label: 'CRUD',
 				icon: 'pi pi-fw pi-bookmark',
 				to: '/crud',
+			},
+			{
+				label: 'Login',
+				icon: 'pi pi-fw pi-bookmark',
+				to: '/login',
 			},
 		],
 	},

@@ -1,36 +1,41 @@
 <template>
-	<div>
-		<p>runtimeConfig.apiBase= {{ runtimeConfig.apiBase }}></p>
-		<p>
-			<Button>button</Button>
-		</p>
-		<Calendar
-			v-model="value"
-			dateFormat="mm-dd-yy"
-			:showTime="true"
-			hourFormat="12"
-		/>
-		<h5>Default</h5>
-		<Editor v-model="value1" editorStyle="height: 320px" />
+	<div class="grid grid-nogutter surface-section text-800">
+		<div
+			class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center"
+		>
+			<section>
+				<span class="block text-6xl font-bold mb-1"
+					>Create the screens your</span
+				>
+				<div class="text-6xl text-primary font-bold mb-3">
+					your visitors deserve to see
+				</div>
+				<p class="mt-0 mb-4 text-700 line-height-3">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				</p>
 
-		<!-- 		<h5>Customized</h5>
-		<Editor v-model="value2" editorStyle="height: 320px">
-			<template v-slot:toolbar>
-				<span class="ql-formats">
-					<button class="ql-bold" v-tooltip.bottom="'Bold'"></button>
-					<button class="ql-italic" v-tooltip.bottom="'Italic'"></button>
-					<button class="ql-underline" v-tooltip.bottom="'Underline'"></button>
-				</span>
-			</template>
-		</Editor> -->
+				<Button
+					label="Learn More"
+					type="button"
+					class="mr-3 p-button-raised"
+				></Button>
+				<Button
+					label="Live Demo"
+					type="button"
+					class="p-button-outlined"
+				></Button>
+			</section>
+		</div>
+		<div class="col-12 md:col-6 overflow-hidden">
+			<img
+				src="images/blocks/hero/hero-1.png"
+				alt="Image"
+				class="md:ml-auto block md:h-full"
+				style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)"
+			/>
+		</div>
 	</div>
 </template>
 
-<script setup>
-const runtimeConfig = useRuntimeConfig()
-const value = ref(null)
-const value1 = ref(
-	'<div>Welcome to PrimeVue <b>Editor</b></div><div><br></div>'
-)
-const value2 = ref('')
-</script>
+<script setup></script>

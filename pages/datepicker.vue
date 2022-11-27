@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h3>Date picker</h3>
-		<Calendar v-model="value" />
+		<Calendar v-model="value" dateFormat="dd.mm.yy" />
 		<p>{{ value }}</p>
 	</div>
 </template>
